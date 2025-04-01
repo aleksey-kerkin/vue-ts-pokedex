@@ -1,9 +1,21 @@
 <script setup lang="ts">
 import { type Pokemon } from "@/entities/pokemon/model/types";
+import { ref } from "vue";
 
-defineProps<{
+const props = defineProps<{
   pokemon: Pokemon;
 }>();
+
+const imageError = ref<boolean>(false);
+
+const handleImageError = () => {
+  imageError.value = true;
+  imageURL.value = "https://placehold.jp/150x150.png"; // [TODO] /public asset
+};
+
+const imageURL = ref(
+  props.pokemon.sprites.other["official-artwork"].front_default,
+);
 </script>
 
 <template>
@@ -11,8 +23,9 @@ defineProps<{
     class="rounded-lg bg-zinc-50 p-4 shadow transition-shadow duration-75 hover:shadow-lg"
   >
     <img
-      :src="pokemon.sprites.other['official-artwork'].front_default"
+      :src="imageURL"
       :alt="pokemon.name"
+      @error="handleImageError"
       class="h-32 w-full object-contain"
     />
     <h3 class="mt-2 text-xl font-bold capitalize">

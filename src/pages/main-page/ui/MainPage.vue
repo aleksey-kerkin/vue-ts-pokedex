@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import { fetchPokemonList } from "@/entities/pokemon/model/pokemon.model";
 import { type Pokemon } from "@/entities/pokemon/model/types";
 import PokemonCard from "@/widgets/pokemon-card/ui/PokemonCard.vue";
+import PokemonSkeleton from "@/shared/ui/skeleton/PokemonSkeleton.vue";
 
 const pokemonList = ref<Pokemon[]>([]);
 const isLoading = ref<boolean>(true);
@@ -21,9 +22,15 @@ onMounted(async () => {
 
 <template>
   <div class="container min-h-screen place-content-center">
-    <p v-if="isLoading" class="animate-pulse text-center text-5xl">
+    <div
+      v-if="isLoading"
+      class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4"
+    >
+      <PokemonSkeleton v-for="n in 12" :key="n" />
+    </div>
+    <!-- <p v-if="isLoading" class="animate-pulse text-center text-5xl">
       Loading Pokémon data...
-    </p>
+    </p> -->
     <p v-if="error" class="text-rose-500">{{ error }}</p>
     <div v-else class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
       <!-- <div
