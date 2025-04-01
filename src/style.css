@@ -1,7 +1,65 @@
 @import "tailwindcss";
 
 @layer components {
+  body {
+    @apply bg-zinc-200;
+  }
   .container {
     @apply mx-auto;
+  }
+  /* Pokémon type background colors - 200 variants */
+  .bg-bug-200 {
+    background-color: var(--color-lime-200);
+  }
+  .bg-dark-200 {
+    background-color: var(--color-gray-200);
+  }
+  .bg-dragon-200 {
+    background-color: var(--color-indigo-200);
+  }
+  .bg-electric-200 {
+    background-color: var(--color-yellow-200);
+  }
+  .bg-fairy-200 {
+    background-color: var(--color-pink-200);
+  }
+  .bg-fighting-200 {
+    background-color: var(--color-red-200);
+  }
+  .bg-fire-200 {
+    background-color: var(--color-orange-200);
+  }
+  .bg-flying-200 {
+    background-color: var(--color-sky-200);
+  }
+  .bg-ghost-200 {
+    background-color: var(--color-violet-200);
+  }
+  .bg-grass-200 {
+    background-color: var(--color-green-200);
+  }
+  .bg-ground-200 {
+    background-color: var(--color-amber-200);
+  }
+  .bg-ice-200 {
+    background-color: var(--color-cyan-200);
+  }
+  .bg-normal-200 {
+    background-color: var(--color-slate-200);
+  }
+  .bg-poison-200 {
+    background-color: var(--color-fuchsia-200);
+  }
+  .bg-psychic-200 {
+    background-color: var(--color-purple-200);
+  }
+  .bg-rock-200 {
+    background-color: var(--color-stone-200);
+  }
+  .bg-steel-200 {
+    background-color: var(--color-zinc-200);
+  }
+  .bg-water-200 {
+    background-color: var(--color-blue-200);
   }
 }

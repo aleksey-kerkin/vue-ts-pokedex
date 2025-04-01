@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <article
-    class="rounded-lg bg-emerald-100 p-4 shadow transition-shadow duration-75 hover:shadow-lg"
+    class="rounded-lg bg-zinc-50 p-4 shadow transition-shadow duration-75 hover:shadow-lg"
   >
     <img
       :src="pokemon.sprites.other['official-artwork'].front_default"
