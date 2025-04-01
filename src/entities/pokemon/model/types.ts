@@ -10,7 +10,7 @@ export interface Pokemon {
   }>;
   sprites: {
     other: {
-      official_artwork: {
+      "official-artwork": {
         front_default: string;
       };
     };

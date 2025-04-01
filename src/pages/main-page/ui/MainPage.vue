@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import { fetchPokemonList } from "@/entities/pokemon/model/pokemon.model";
 import { type Pokemon } from "@/entities/pokemon/model/types";
+import PokemonCard from "@/widgets/pokemon-card/ui/PokemonCard.vue";
 
 const pokemonList = ref<Pokemon[]>([]);
 const isLoading = ref<boolean>(true);
@@ -19,18 +20,25 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container">
-    <p v-if="isLoading" class="animate-pulse text-center">Loading Pokémon...</p>
+  <div class="container min-h-screen place-content-center">
+    <p v-if="isLoading" class="animate-pulse text-center text-5xl">
+      Loading Pokémon data...
+    </p>
     <p v-if="error" class="text-rose-500">{{ error }}</p>
-    <div v-else class="gap4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      <div
+    <div v-else class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <!-- <div
         v-for="pokemon in pokemonList"
         :key="pokemon.id"
-        class="rounded-lg bg-white p-4 shadow"
+        class="rounded-lg bg-emerald-100 p-4 shadow"
       >
         <h2>{{ pokemon.name }}</h2>
         <p>#{{ pokemon.id.toString().padStart(3, "0") }}</p>
-      </div>
+      </div> -->
+      <PokemonCard
+        v-for="pokemon in pokemonList"
+        :key="pokemon.id"
+        :pokemon="pokemon"
+      />
     </div>
   </div>
 </template>
